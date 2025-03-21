@@ -15,13 +15,13 @@ Board::Board(int sizeX, int sizeY, int nMines) {
     this->sizeX = sizeX;
     this->sizeY = sizeY;
     this->nMines = nMines;
-    this->board = (uint8_t*) malloc(sizeof(uint8_t) * nMines);
+    this->board = (uint8_t*) malloc(sizeof(uint8_t) * nSpaces);
 
     // populate mines
     std::set<int> mines;
     // TODO: this is nasty, find a better way
     while (mines.size() < nMines) {
-        mines.insert(rand() % nMines);
+        mines.insert(rand() % nSpaces);
     }
     std::set<int>::iterator m;
     for(m = mines.begin(); m != mines.end(); m++) {
